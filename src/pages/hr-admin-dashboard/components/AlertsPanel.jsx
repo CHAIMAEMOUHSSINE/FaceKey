@@ -8,7 +8,7 @@ const AlertsPanel = ({ currentLanguage = 'fr' }) => {
       id: 1,
       type: 'warning',
       title: 'Retards Fréquents',
-      message: 'Jean Martin a été en retard 3 fois cette semaine',
+      message: 'Chaimae Essou a été en retard 3 fois cette semaine',
       timestamp: new Date(Date.now() - 1800000),
       isRead: false,
       employeeId: 'EMP002'
@@ -17,7 +17,7 @@ const AlertsPanel = ({ currentLanguage = 'fr' }) => {
       id: 2,
       type: 'error',
       title: 'Absence Non Justifiée',
-      message: 'Paul Durand absent depuis 2 jours sans notification',
+      message: 'Latifa Moutawakil absent depuis 2 jours sans notification',
       timestamp: new Date(Date.now() - 3600000),
       isRead: false,
       employeeId: 'EMP015'
@@ -26,7 +26,7 @@ const AlertsPanel = ({ currentLanguage = 'fr' }) => {
       id: 3,
       type: 'info',
       title: 'Nouveau Employé',
-      message: 'Sophie Laurent a été ajoutée au système',
+      message: 'Halima id Ouaksim a été ajoutée au système',
       timestamp: new Date(Date.now() - 7200000),
       isRead: true,
       employeeId: 'EMP003'
@@ -35,7 +35,7 @@ const AlertsPanel = ({ currentLanguage = 'fr' }) => {
       id: 4,
       type: 'warning',
       title: 'Heures Supplémentaires',
-      message: 'Marie Dubois: 12h de travail aujourd\'hui',
+      message: 'Chaimae Essou a été en retard 3 fois cette semainei',
       timestamp: new Date(Date.now() - 10800000),
       isRead: false,
       employeeId: 'EMP001'

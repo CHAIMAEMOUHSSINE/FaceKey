@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserProfileHeader from '../../components/ui/UserProfileHeader';
-import RoleBasedSidebar from '../../components/ui/RoleBasedSidebar';
 import NavigationBreadcrumbs from '../../components/ui/NavigationBreadcrumbs';
 import QuickActionFab from '../../components/ui/QuickActionFab';
 import ReportFilters from './components/ReportFilters';
@@ -9,6 +8,7 @@ import ReportPreview from './components/ReportPreview';
 import AttendanceCharts from './components/AttendanceCharts';
 import ExportOptions from './components/ExportOptions';
 import Icon from '../../components/AppIcon';
+import RoleBasedSidebar from "../../components/ui/RoleBasedSidebar";
 
 const AttendanceReports = () => {
   const navigate = useNavigate();
@@ -18,9 +18,9 @@ const AttendanceReports = () => {
   const [isExporting, setIsExporting] = useState(false);
   const [reportData, setReportData] = useState(null);
   const [currentUser, setCurrentUser] = useState({
-    name: 'Marie Dubois',
-    role: 'admin',
-    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'
+    name: 'Nourredine ALLASSAK ',
+    role: 'HR',
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS16-OcAOYQV6Bf6cePOupN1QnGfhnRjpv3bQ&s'
   });
 
   // Load language preference on mount

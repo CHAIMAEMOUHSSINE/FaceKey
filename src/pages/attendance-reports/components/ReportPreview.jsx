@@ -65,7 +65,7 @@ const ReportPreview = ({
     },
     {
       id: 2,
-      employee: 'Marie Martin',
+      employee: 'Latifa Moutawakil ',
       department: 'Administration',
       clockIn: '08:15',
       clockOut: '17:00',
@@ -76,7 +76,7 @@ const ReportPreview = ({
     },
     {
       id: 3,
-      employee: 'Pierre Bernard',
+      employee: 'Ali  Alami',
       department: 'Maintenance',
       clockIn: '07:45',
       clockOut: '16:45',
@@ -87,7 +87,7 @@ const ReportPreview = ({
     },
     {
       id: 4,
-      employee: 'Sophie Dubois',
+      employee: 'Halima id ouaksim',
       department: 'Qualité',
       clockIn: '--',
       clockOut: '--',
@@ -98,7 +98,7 @@ const ReportPreview = ({
     },
     {
       id: 5,
-      employee: 'Luc Moreau',
+      employee: 'issam Moru',
       department: 'Logistique',
       clockIn: '08:00',
       clockOut: '15:30',

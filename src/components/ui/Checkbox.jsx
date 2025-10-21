@@ -3,18 +3,18 @@ import { Check, Minus } from "lucide-react";
 import { cn } from "../../utils/cn";
 
 const Checkbox = React.forwardRef(({
-    className,
-    id,
-    checked,
-    indeterminate = false,
-    disabled = false,
-    required = false,
-    label,
-    description,
-    error,
-    size = "default",
-    ...props
-}, ref) => {
+                                       className,
+                                       id,
+                                       checked,
+                                       indeterminate = false,
+                                       disabled = false,
+                                       required = false,
+                                       label,
+                                       description,
+                                       error,
+                                       size = "default",
+                                       ...props
+                                   }, ref) => {
     // Generate unique ID if not provided
     const checkboxId = id || `checkbox-${Math.random()?.toString(36)?.substr(2, 9)}`;
 
@@ -94,15 +94,15 @@ Checkbox.displayName = "Checkbox";
 
 // Checkbox Group component
 const CheckboxGroup = React.forwardRef(({
-    className,
-    children,
-    label,
-    description,
-    error,
-    required = false,
-    disabled = false,
-    ...props
-}, ref) => {
+                                            className,
+                                            children,
+                                            label,
+                                            description,
+                                            error,
+                                            required = false,
+                                            disabled = false,
+                                            ...props
+                                        }, ref) => {
     return (
         <fieldset
             ref={ref}

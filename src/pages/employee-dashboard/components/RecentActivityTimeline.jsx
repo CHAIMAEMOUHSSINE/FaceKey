@@ -1,8 +1,9 @@
 import React from 'react';
 import Icon from '../../../components/AppIcon';
 
-const RecentActivityTimeline = ({ 
+const RecentActivityTimeline = ({
   currentLanguage = 'fr',
+                                  employeeDashboard,
   activities = []
 }) => {
   const translations = {
@@ -35,11 +36,11 @@ const RecentActivityTimeline = ({
   const t = translations?.[currentLanguage] || translations?.fr;
 
   // Mock data if no activities provided
-  const mockActivities = [
+  const activitiyDash = [
     {
       id: 1,
       type: 'clock_in',
-      timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
+      timestamp: employeeDashboard?.heure_Arrivee,// 2 hours ago
       location: 'Bureau Principal',
       method: 'facial_recognition'
     },
@@ -60,20 +61,20 @@ const RecentActivityTimeline = ({
     {
       id: 4,
       type: 'clock_out',
-      timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000), // Yesterday
+      timestamp: employeeDashboard?.depart_Hier,// Yesterday
       location: 'Bureau Principal',
       method: 'facial_recognition'
     },
     {
       id: 5,
       type: 'clock_in',
-      timestamp: new Date(Date.now() - 25 * 60 * 60 * 1000), // Yesterday
+      timestamp: employeeDashboard?.arrivee_Hier, // Yesterday
       location: 'Bureau Principal',
       method: 'facial_recognition'
     }
   ];
 
-  const displayActivities = activities?.length > 0 ? activities : mockActivities;
+  const displayActivities = activitiyDash;
 
   const getActivityConfig = (type) => {
     const configs = {
@@ -128,12 +129,7 @@ const RecentActivityTimeline = ({
         minute: '2-digit'
       })}`;
     } else {
-      return date?.toLocaleDateString(currentLanguage === 'fr' ? 'fr-FR' : 'en-US', {
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      });
+      return timestamp;
     }
   };
 

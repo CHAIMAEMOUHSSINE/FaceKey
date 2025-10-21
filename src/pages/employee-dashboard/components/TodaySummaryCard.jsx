@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../../../components/AppIcon';
+import EmployeeService from "../../../service/employeeService";
 
 const TodaySummaryCard = ({ 
   currentLanguage = 'fr',
@@ -81,6 +82,40 @@ const TodaySummaryCard = ({
     };
     return today?.toLocaleDateString(currentLanguage === 'fr' ? 'fr-FR' : 'en-US', options);
   };
+
+    const downloadExcel = async () => {
+      try {
+        // 1. Appel à ton endpoint Spring
+        const base64 = await EmployeeService.getEmployeeCsv(localStorage.getItem('id'));
+
+        const data=base64.csvToString;
+
+        // 2. Décodage Base64 → octets
+        const binaryString = atob(data);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+          bytes[i] = binaryString.charCodeAt(i);
+        }
+
+        // 3. Création du Blob Excel
+        const blob = new Blob([bytes], {
+          type: "application/vnd.ms-excel;charset=utf-8"
+        });
+
+        // 4. Téléchargement
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "pointages.xls"; // nom du fichier
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+
+      } catch (error) {
+        console.error("Erreur lors du téléchargement :", error);
+      }
+    };
 
   return (
     <div className="bg-card border border-border rounded-xl shadow-elevation-2 p-6">
@@ -171,7 +206,7 @@ const TodaySummaryCard = ({
             <Icon name="History" size={16} color="var(--color-muted-foreground)" />
             <span className="text-muted-foreground">Historique</span>
           </button>
-          <button className="flex items-center justify-center space-x-2 py-2 px-3 bg-muted/50 hover:bg-muted rounded-lg transition-smooth text-sm">
+          <button onClick={downloadExcel} className="flex items-center justify-center space-x-2 py-2 px-3 bg-muted/50 hover:bg-muted rounded-lg transition-smooth text-sm">
             <Icon name="Download" size={16} color="var(--color-muted-foreground)" />
             <span className="text-muted-foreground">Export</span>
           </button>

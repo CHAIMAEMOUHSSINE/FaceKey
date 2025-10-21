@@ -47,38 +47,34 @@ const LoginAuthentication = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 flex flex-col">
+      <div className="min-h-screen bg-gradient-to-br from-[#F5F0E1] via-[#F5F0E1] to-[#F2E7D5] flex flex-col">
+
       {/* Language Toggle - Top Right */}
-      <div className="absolute top-6 right-6 z-10">
-        <LanguageToggle 
-          currentLanguage={currentLanguage}
-          onLanguageChange={handleLanguageChange}
-        />
-      </div>
+
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-md">
-          {/* Login Card */}
-          <div className="bg-card border border-border rounded-2xl shadow-elevation-3 p-8">
-            {/* Company Branding */}
-            <CompanyBranding currentLanguage={currentLanguage} />
-            
+      <div className="flex-1 flex items-center justify-center px-4 py-12 relative overflow-hidden">
+        {/* Blurred Background */}
+        <div
+            className="absolute inset-0 bg-cover bg-center blur-sm"
+            style={{
+              backgroundImage:
+                  "url('https://static.lematin.ma/files/lematin/images/articles/2016/09/Lafargeholcim.jpg')",
+            }}
+        ></div>
+
+        {/* Login Card (not blurred) */}
+        <div className="relative z-10">
+
+
             {/* Login Form */}
             <LoginForm 
               currentLanguage={currentLanguage}
               onLanguageChange={handleLanguageChange}
             />
-          </div>
 
-          {/* Mock Credentials Helper */}
-          <MockCredentialsHelper
-            currentLanguage={currentLanguage}
-            onCredentialSelect={handleCredentialSelect}
-          />
 
-          {/* Security Footer */}
-          <SecurityFooter currentLanguage={currentLanguage} />
+
         </div>
       </div>
 

@@ -19,9 +19,9 @@ const HRAdminDashboard = () => {
 
   // Mock user data
   const currentUser = {
-    name: 'Claire Dubois',
-    role: 'hr',
-    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150'
+    name: 'Nourredine ALLASSAK',
+    role: 'HR',
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS16-OcAOYQV6Bf6cePOupN1QnGfhnRjpv3bQ&s'
   };
 
   // Load language preference

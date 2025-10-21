@@ -3,7 +3,8 @@ import Icon from '../../../components/AppIcon';
 
 const QuickStatsWidgets = ({ 
   currentLanguage = 'fr',
-  weeklyHours = '32h 15m',
+    employeeDashboard,
+  weeklyHours ,
   monthlyAttendance = 95,
   upcomingSchedule = []
 }) => {
@@ -97,9 +98,11 @@ const QuickStatsWidgets = ({
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Weekly Hours Widget */}
-      <div className="bg-card border border-border rounded-xl shadow-elevation-2 p-6">
+      <div className="bg-card border border-border rounded-xl shadow-elevation-2 p-6" style={{
+        width:'100%'
+      }}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-3">
             <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg">
@@ -126,13 +129,15 @@ const QuickStatsWidgets = ({
           </div>
 
           <div className="flex items-center justify-between text-xs text-muted-foreground">
-            <span>{t?.remaining}: {Math.max(40 - parseFloat(weeklyHours), 0)?.toFixed(1)}h</span>
+            <span>{t?.remaining}: {employeeDashboard?.restant ||'0'}h</span>
             <span>5 jours</span>
           </div>
         </div>
       </div>
       {/* Monthly Attendance Widget */}
-      <div className="bg-card border border-border rounded-xl shadow-elevation-2 p-6">
+      <div className="bg-card border border-border rounded-xl shadow-elevation-2 p-6" style={{
+        width:'100%'
+      }}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-3">
             <div className="flex items-center justify-center w-10 h-10 bg-accent/10 rounded-lg">
@@ -163,54 +168,7 @@ const QuickStatsWidgets = ({
           </div>
         </div>
       </div>
-      {/* Upcoming Schedule Widget */}
-      <div className="bg-card border border-border rounded-xl shadow-elevation-2 p-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center space-x-3">
-            <div className="flex items-center justify-center w-10 h-10 bg-warning/10 rounded-lg">
-              <Icon name="CalendarDays" size={24} color="var(--color-warning)" />
-            </div>
-            <div>
-              <h4 className="text-sm font-medium text-muted-foreground">{t?.upcomingSchedule}</h4>
-              <p className="text-sm text-foreground">Prochains horaires</p>
-            </div>
-          </div>
-        </div>
 
-        <div className="space-y-3">
-          {displaySchedule?.length === 0 ? (
-            <div className="text-center py-4">
-              <Icon name="Calendar" size={32} color="var(--color-muted-foreground)" className="mx-auto mb-2" />
-              <p className="text-sm text-muted-foreground">{t?.noSchedule}</p>
-            </div>
-          ) : (
-            displaySchedule?.slice(0, 2)?.map((schedule) => (
-              <div key={schedule?.id} className="flex items-center justify-between py-2 border-b border-border last:border-b-0">
-                <div>
-                  <p className="text-sm font-medium text-foreground">
-                    {formatScheduleDate(schedule?.date)}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {schedule?.startTime} - {schedule?.endTime}
-                  </p>
-                </div>
-                <div className="text-right">
-                  <div className="flex items-center space-x-1">
-                    <Icon name="MapPin" size={12} color="var(--color-muted-foreground)" />
-                    <span className="text-xs text-muted-foreground">{schedule?.location}</span>
-                  </div>
-                </div>
-              </div>
-            ))
-          )}
-        </div>
-
-        {displaySchedule?.length > 2 && (
-          <button className="w-full mt-3 py-2 text-sm text-primary hover:text-primary/80 font-medium transition-smooth">
-            Voir Plus ({displaySchedule?.length - 2})
-          </button>
-        )}
-      </div>
     </div>
   );
 };

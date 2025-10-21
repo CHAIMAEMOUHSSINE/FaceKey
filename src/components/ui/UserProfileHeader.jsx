@@ -3,7 +3,7 @@ import Icon from '../AppIcon';
 import Button from './Button';
 
 const UserProfileHeader = ({ 
-  user = { name: 'Jean Dupont', role: 'Employé', avatar: null },
+  user = { name: 'Yasmine', role: 'Employé', avatar: null },
   onLogout = () => {},
   onLanguageChange = () => {},
   currentLanguage = 'fr'
@@ -52,8 +52,8 @@ const UserProfileHeader = ({
             <Icon name="Camera" size={24} color="white" />
           </div>
           <div className="hidden sm:block">
-            <h1 className="text-lg font-semibold text-foreground">FaceTime Attendance</h1>
-            <p className="text-xs text-muted-foreground">LafargeHolcim</p>
+            <h1 className="text-lg font-semibold text-foreground">AutoPointage</h1>
+            <p className="text-xs text-muted-foreground">LafargeHolcim Maroc</p>
           </div>
         </div>
 

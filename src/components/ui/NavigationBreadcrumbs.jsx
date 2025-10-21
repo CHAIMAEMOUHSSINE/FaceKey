@@ -105,11 +105,11 @@ const NavigationBreadcrumbs = ({
             
             {breadcrumb?.isLast ? (
               <div className="flex items-center space-x-2 text-foreground font-medium">
-                <Icon 
-                  name={breadcrumb?.icon} 
-                  size={16} 
-                  color="var(--color-primary)"
-                />
+                {/*<Icon */}
+                {/*  name={breadcrumb?.icon} */}
+                {/*  size={16} */}
+                {/*  color="var(--color-primary)"*/}
+                {/*/>*/}
                 <span className="hidden sm:inline">{breadcrumb?.label}</span>
               </div>
             ) : (
@@ -124,7 +124,6 @@ const NavigationBreadcrumbs = ({
                   size={16} 
                   color="var(--color-muted-foreground)"
                 />
-                <span className="hidden sm:inline">{breadcrumb?.label}</span>
               </Button>
             )}
           </React.Fragment>

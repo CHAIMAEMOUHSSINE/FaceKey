@@ -3,13 +3,13 @@ import * as LucideIcons from 'lucide-react';
 import { HelpCircle } from 'lucide-react';
 
 function Icon({
-    name,
-    size = 24,
-    color = "currentColor",
-    className = "",
-    strokeWidth = 2,
-    ...props
-}) {
+                  name,
+                  size = 24,
+                  color = "currentColor",
+                  className = "",
+                  strokeWidth = 2,
+                  ...props
+              }) {
     const IconComponent = LucideIcons?.[name];
 
     if (!IconComponent) {

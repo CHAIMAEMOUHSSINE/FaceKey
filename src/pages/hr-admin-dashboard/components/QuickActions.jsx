@@ -70,7 +70,7 @@ const QuickActions = ({ currentLanguage = 'fr' }) => {
       color: 'warning',
       onClick: () => {
         // Mock export functionality
-        const csvData = `Nom,ID,Département,Statut,Heure\nMarie Dubois,EMP001,Production,Présent,08:00\nJean Martin,EMP002,Administration,Présent,08:15`;
+        const csvData = `Nom,ID,Département,Statut,Heure\nChaimae Essou,EMP001,Production,Présent,08:00\nNourredine Allasak,EMP002,Administration,Présent,08:15`;
         const blob = new Blob([csvData], { type: 'text/csv' });
         const url = window.URL?.createObjectURL(blob);
         const a = document.createElement('a');

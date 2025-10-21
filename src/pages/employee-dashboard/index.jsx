@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserProfileHeader from '../../components/ui/UserProfileHeader';
-import RoleBasedSidebar from '../../components/ui/RoleBasedSidebar';
 import NavigationBreadcrumbs from '../../components/ui/NavigationBreadcrumbs';
 import QuickActionFab from '../../components/ui/QuickActionFab';
 import FacialRecognitionPanel from './components/FacialRecognitionPanel';
 import TodaySummaryCard from './components/TodaySummaryCard';
 import RecentActivityTimeline from './components/RecentActivityTimeline';
 import QuickStatsWidgets from './components/QuickStatsWidgets';
+import EmployeeService from "../../service/employeeService";
 
 const EmployeeDashboard = () => {
   const navigate = useNavigate();
@@ -20,10 +20,17 @@ const EmployeeDashboard = () => {
 
   // Mock user data
   const currentUser = {
-    name: 'Jean Dupont',
+    name: localStorage.getItem('fullName'),
     role: 'Employé',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
+    avatar: 'https://media.licdn.com/dms/image/v2/D4E03AQGPb9SBEfIO4Q/profile-displayphoto-scale_200_200/B4EZkE77FwGoAY-/0/1756724443434?e=2147483647&v=beta&t=hD63t4s0xd9eEj-PYROFHEruQKRcDod3YgbHVSE67fs'
   };
+  const [employeeDashboard, setEmployeeDashboard] = useState(null);
+  useEffect(async () => {
+    const id = localStorage.getItem('id');
+    const response = await EmployeeService.getEmployee(id);
+    setEmployeeDashboard(response);
+  }, []);
+
 
   // Load saved language preference
   useEffect(() => {
@@ -146,13 +153,7 @@ const EmployeeDashboard = () => {
         currentLanguage={currentLanguage}
       />
 
-      {/* Sidebar */}
-      <RoleBasedSidebar
-        userRole="employee"
-        isCollapsed={isSidebarCollapsed}
-        onToggleCollapse={handleToggleSidebar}
-        currentLanguage={currentLanguage}
-      />
+
 
       {/* Main Content */}
       <main className={`transition-smooth ${
@@ -169,7 +170,8 @@ const EmployeeDashboard = () => {
           {/* Quick Stats Widgets */}
           <QuickStatsWidgets
             currentLanguage={currentLanguage}
-            weeklyHours="32h 15m"
+            employeeDashboard={employeeDashboard}
+            weeklyHours={employeeDashboard?.heures_Hebdomadaires ||'0'}
             monthlyAttendance={95}
           />
 
@@ -191,8 +193,8 @@ const EmployeeDashboard = () => {
               {/* Today's Summary */}
               <TodaySummaryCard
                 currentLanguage={currentLanguage}
-                clockInTime={clockInTime}
-                totalHours={totalHours}
+                clockInTime={employeeDashboard?.heure_Arrivee|| '0'}
+                totalHours={employeeDashboard?.heures_totales|| '0'}
                 currentStatus={isClocked ? 'in' : 'out'}
                 isClocked={isClocked}
               />
@@ -202,6 +204,7 @@ const EmployeeDashboard = () => {
           {/* Recent Activity Timeline */}
           <div className="grid grid-cols-1">
             <RecentActivityTimeline
+                employeeDashboard={employeeDashboard}
               currentLanguage={currentLanguage}
             />
           </div>

@@ -77,12 +77,12 @@ const ReportFilters = ({
 
   const employeeOptions = [
     { value: 'all', label: t?.allEmployees },
-    { value: 'jean-dupont', label: 'Jean Dupont' },
-    { value: 'marie-martin', label: 'Marie Martin' },
-    { value: 'pierre-bernard', label: 'Pierre Bernard' },
-    { value: 'sophie-dubois', label: 'Sophie Dubois' },
-    { value: 'luc-moreau', label: 'Luc Moreau' },
-    { value: 'claire-petit', label: 'Claire Petit' }
+    { value: 'Hamza Mouhssine', label: 'Hamza Mouhssine' },
+    { value: 'Chaimae Mouhssine', label: 'Chaimae Mouhssine ' },
+    { value: 'Zakaria Zaki', label: ' Zakaria Zaki' },
+    { value: 'Halima id ouaksim', label: 'Halima id ouaksim ' },
+    { value: 'Ali alami', label: 'Ali alami' },
+    { value: 'Monsif fi', label: 'Monsif fi' }
   ];
 
   const reportTypeOptions = [
