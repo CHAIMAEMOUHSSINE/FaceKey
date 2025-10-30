@@ -4,7 +4,7 @@ import Icon from '../AppIcon';
 import Button from './Button';
 
 const RoleBasedSidebar = ({
-                            userRole = 'hr',
+                            userRole = 'HR',
                             isCollapsed = false,
                             onToggleCollapse = () => {},
                             currentLanguage = 'fr'
@@ -44,17 +44,17 @@ const RoleBasedSidebar = ({
     const baseItems = [
       {
         id: 'dashboard',
-        label: userRole === 'admin' || userRole === 'hr' ? t?.hrDashboard : t?.employeeDashboard,
+        label: userRole === 'admin' || userRole === 'HR' ? t?.hrDashboard : t?.employeeDashboard,
         icon: 'LayoutDashboard',
-        path: userRole === 'admin' || userRole === 'hr' ? '/hr-admin-dashboard' : '/employee-dashboard',
-        roles: ['employee', 'admin', 'hr']
+        path: userRole === 'admin' || userRole === 'HR' ? '/hr-admin-dashboard' : '/employee-dashboard',
+        roles: ['employee', 'admin', 'HR']
       },
       {
         id: 'attendance',
         label: t?.attendanceHistory,
         icon: 'Clock',
         path: '/personal-attendance-history',
-        roles: ['employee', 'admin', 'hr']
+        roles: ['employee', 'admin', 'HR']
       }
     ];
 
@@ -64,14 +64,14 @@ const RoleBasedSidebar = ({
         label: t?.manageEmployees,
         icon: 'Users',
         path: '/employee-management',
-        roles: ['admin', 'hr']
+        roles: ['admin', 'HR']
       },
       {
         id: 'reports',
         label: t?.attendanceReports,
         icon: 'BarChart3',
         path: '/attendance-reports',
-        roles: ['admin', 'hr']
+        roles: ['admin', 'HR']
       }
     ];
 

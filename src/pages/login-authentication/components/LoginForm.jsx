@@ -94,7 +94,12 @@ const LoginForm = ({ currentLanguage = 'fr', onLanguageChange = () => {} }) => {
         localStorage.setItem('currentLanguage', currentLanguage);
         localStorage.setItem('isAuthenticated', 'true');
 
-        navigate('/employee-dashboard'); // change this based on role if needed
+        // 🔹 Redirection corrigée selon le rôle
+        if (roleCredentials?.role === "HR") {
+          navigate('/hr-dashboard');
+        } else {
+          navigate('/employee-dashboard');
+        }
       } else {
         setFailedAttempts(prev => prev + 1);
         setErrors({
@@ -107,6 +112,8 @@ const LoginForm = ({ currentLanguage = 'fr', onLanguageChange = () => {} }) => {
       setIsLoading(false);
     }
   };
+
+
 
   return (
       <div

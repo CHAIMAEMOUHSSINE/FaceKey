@@ -39,8 +39,7 @@ const MockCredentialsHelper = ({ currentLanguage = 'fr', onCredentialSelect = ()
       icon: 'User',
       color: 'var(--color-primary)'
     },
-    {
-      role: 'hr',
+    {      role: 'hr',
       label: t?.hrAdmin,
       email: 'hr@lafargeholcim.com',
       password: 'hr123',

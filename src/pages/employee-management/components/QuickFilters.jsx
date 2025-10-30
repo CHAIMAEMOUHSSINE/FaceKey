@@ -23,7 +23,7 @@ const QuickFilters = ({
       employee: 'Employé',
       manager: 'Manager',
       admin: 'Administrateur',
-      hr: 'RH',
+      hr: 'HR',
       clearFilters: 'Effacer Filtres',
       activeFilters: 'Filtres Actifs'
     },

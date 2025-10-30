@@ -42,7 +42,7 @@ const EmployeeService={
     },
     getEmployeeCsv:async(id)=>{
         try{
-            const response=await ffetch(`http://localhost:8080/api/employees/csv/${id}`,{
+            const response=await fetch(`http://localhost:8080/api/employees/csv/${id}`,{
 
                 method:"GET"
             })
